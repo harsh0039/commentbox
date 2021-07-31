@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<title>CommentBox</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body id="body" style="background:#F7FAFF">
+	<div class="container-fluid m-0">
+	<h3 class="text-center mt-4 text-success">Comments Post ,Edit & Delete</h3>
+
+<center>
+	<input type ="text" class="form-control mt-5 mb-2 w-50" id="text" >
+	<button class="btn btn-primary mb-2" id="post" onclick="msg()">POST</button>
+<div id ="result" style="word-wrap: break-word;"></div>
+	
+</center>	
+
+
+
+	</div>
+
+<script>
+	function msg(){
+
+		var text = document.getElementById("text").value;
+		var result = document.getElementById("result");
+		var div = document.createElement("div");
+		div.className = "mb-2 bg-info text-white";
+		div.style.width = "100%";
+		var p = document.createElement("p");
+		p.innerHTML = text;
+		var i = document.createElement("i");
+		i.className = "fa fa-trash del ml-2 btn text-white";
+		var i_edit = document.createElement("i");
+		i_edit.className = "fa fa-edit ed ml-1 btn text-white";
+		div.append(p);
+		div.append(i);
+		div.append(i_edit);
+		result.append(div);
+
+		i.onclick = function(){
+			this.parentElement.remove();
+		}
+		i_edit.onclick = function()
+		{
+			p.setAttribute("contenteditable","true");
+			p.focus();
+		}
+		
+	}
+
+
+
+	
+</script>
+
+</body>
+</html>
